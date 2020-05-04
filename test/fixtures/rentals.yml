@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  plane: one
+  airport: one
+  plane_rating: 1
+
+two:
+  user: two
+  plane: two
+  airport: two
+  plane_rating: 1
