@@ -1,0 +1,8 @@
+<h1> Hi, <%= @user.name %>, these are your rentals: </h1>
+
+<ul>
+<% @user.rentals.each do |rental| %> 
+  <li> Rented at: <%= link_to rental.created_at.strftime("%d/%m/%Y %T"), rental_path(rental) %> 
+  to <%= rental.airport.city.name %> </li> 
+<% end %>
+</ul>

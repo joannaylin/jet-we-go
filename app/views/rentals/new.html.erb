@@ -1,0 +1,11 @@
+<h1> Rent a Plane: </h1>
+
+<%= form_for @rental do |f| %>
+  <%= f.label :plane_id %>
+  <%= f.collection_select :plane_id, @planes, :id, :model %>
+  <br>
+  <%= f.label :airport_id %>
+  <%= f.collection_select :airport_id, @airports, :id, :airport_city %>
+  <br>
+  <%= f.submit %>
+<% end %>

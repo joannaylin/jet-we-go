@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_171046) do
+ActiveRecord::Schema.define(version: 2020_05_04_215333) do
 
   create_table "airports", force: :cascade do |t|
     t.string "code"
     t.integer "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["city_id"], name: "index_airports_on_city_id"
   end
 
