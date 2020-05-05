@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-
+  before_action :require_login
   def index
   end
 
@@ -14,8 +14,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.user_id = session[:id]
     if @rental.save
+      planex = Plane.find(@rental.plane_id)
+      planex.update(available: false)
       redirect_to rental_path(@rental)
-    else
+    else  
       redirect_to new_rental_path
     end
   end
@@ -29,5 +31,9 @@ class RentalsController < ApplicationController
   def rental_params
     params.require(:rental).permit(:plane_id, :airport_id)
   end
-
+  def require_login
+    if !session.include? :id
+      redirect_to login_path
+    end
+  end
 end

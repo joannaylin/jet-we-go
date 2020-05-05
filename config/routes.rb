@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   get "/", to: "users#new", as: "new_user"
   post "/", to: "users#create"
   get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
+  post "/login", to: "sessions#create", as: "sessions"
   post "/logout", to: "sessions#destroy"
 
   # get "/:user", to: "users#show", as: "homepage"
   resources :planes, only: [:index, :show]
   resources :rentals
-  resources :users, only: [:show]
+  resources :users, only: [:new, :create, :show]
 
 end
