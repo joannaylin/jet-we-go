@@ -15,4 +15,8 @@ class Plane < ApplicationRecord
     self.all.filter {|plane| plane.available == true}
   end
 
+  def daily_cost_display
+    "$" + "#{daily_cost}"
+  end
+
 end

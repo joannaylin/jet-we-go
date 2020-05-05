@@ -1,6 +1,19 @@
 <h1> Rental Details: </h1>
 
+<%= flash[:message] %>
+
 <p>Plane: <%= @rental.plane.model %> </p>
 <p>City: <%= @rental.airport.city.name %> </p>
 <p>Airport: <%= @rental.airport.name %> </p>
-
+<p>Rental Start: <%= @rental.rental_start.strftime("%m/%d/%Y") %> </p>
+<p>Rental End: <%= @rental.rental_end.strftime("%m/%d/%Y") %> </p>
+<p>Rental Duration: <%= @rental.rental_period %> </p>
+<br>
+<% if @rental.rental_status == "Active" %>
+    <%= button_to "Return Plane", return_path(@rental) %>
+<% end %>
+<%= link_to "Edit", edit_rental_path(@rental) %>
+<br>
+<%= link_to "Delete", "/rentals/#{@rental.id}", method: :delete %>
+<br>
+<%= link_to "Back", user_path(@user) %>

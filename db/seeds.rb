@@ -12,10 +12,10 @@ Airport.destroy_all
 Rental.destroy_all
 
 # planes
-Plane.create!(model: "Jet1", identifier: "J1", year_made: 2005, available: true)
-Plane.create!(model: "SR-71", identifier: "Blackbird", year_made: 1965, available: true)
-Plane.create!(model: "F18", identifier: "Hornets", year_made: 2010, available: true)
-Plane.create!(model: "F14", identifier: "Tomcat", year_made: 1989, available: true)
+Plane.create!(model: "Jet1", identifier: "J1", year_made: 2005, available: true, daily_cost: 153490)
+Plane.create!(model: "SR-71", identifier: "Blackbird", year_made: 1965, available: true, daily_cost: 10000)
+Plane.create!(model: "F18", identifier: "Hornets", year_made: 2010, available: true, daily_cost: 3500)
+Plane.create!(model: "F14", identifier: "Tomcat", year_made: 1989, available: true, daily_cost: 6000)
 
 # cities
 City.create!(name: "Chicago", destinations: "Millenium Park, The Art Institute, Cloudgate")

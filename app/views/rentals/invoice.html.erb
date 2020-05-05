@@ -1,0 +1,8 @@
+<h1> Here is your total: </h1>
+
+<% if @rental.rental_status == "Returned" %>
+<p> Amount Owed: <%= @rental.amount_owed %> </p>
+<% else %>
+<p> <%= "Plane not returned." %> </p>
+<% end %>
+<%= link_to "Back", user_path(@user) %>

@@ -1,15 +1,7 @@
 <h1> Welcome to Jet-We-Go, <%= @user.name %>! </h1>
-<p> Here are the available planes: </p>
+<h3> Here are the available planes: </h3>
 
-<ul>
 <% @planes.each do |plane| %>
   <li> <%= link_to plane.model, plane_path(plane) %> </li>
 <% end %>
-</ul>
 <br>
-
-<%= link_to "Rent a Plane", new_rental_path %>
-
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='Logout'>
-<% end %>
