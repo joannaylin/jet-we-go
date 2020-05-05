@@ -1,6 +1,11 @@
 <h1> Sign Up: </h1>
+<% if @user.errors %>
+  <% @user.errors.full_messages.each do |error| %>
+    <p style="color: red"><%= error %></p>
+  <% end%>
+<% end %>
 
-<%= form_for :user  do |f| %>
+<%= form_for @user  do |f| %>
   <%= f.label :name, "Name: " %>
   <%= f.text_field :name %>
   <br>

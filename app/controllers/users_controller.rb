@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       redirect_to planes_path
     else
-      redirect_to "/"
+      render :new
     end
   end
 
