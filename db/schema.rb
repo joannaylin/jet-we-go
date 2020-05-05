@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_215333) do
+ActiveRecord::Schema.define(version: 2020_05_05_165453) do
 
   create_table "airports", force: :cascade do |t|
     t.string "code"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_215333) do
     t.boolean "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "daily_cost"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -44,6 +45,10 @@ ActiveRecord::Schema.define(version: 2020_05_04_215333) do
     t.integer "plane_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "rental_start"
+    t.datetime "rental_end"
+    t.datetime "rental_return"
+    t.integer "rental_cost"
     t.index ["airport_id"], name: "index_rentals_on_airport_id"
     t.index ["plane_id"], name: "index_rentals_on_plane_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"

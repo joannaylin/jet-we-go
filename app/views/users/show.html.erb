@@ -1,8 +1,9 @@
-<h1> Hi, <%= @user.name %>, these are your rentals: </h1>
+<h1> Hi, <%= @user.name %>. Here are your rentals: </h1>
 
-<ul>
+
 <% @user.rentals.each do |rental| %> 
-  <li> Rented at: <%= link_to rental.created_at.strftime("%d/%m/%Y %T"), rental_path(rental) %> 
-  to <%= rental.airport.city.name %> </li> 
+  <li> Rented at: <%= link_to rental.created_at.strftime("%m/%d/%Y %T"), rental_path(rental) %> 
+  to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %>
+  <%= link_to "Invoice", invoice_path(rental) %>
+  </li> 
 <% end %>
-</ul>
