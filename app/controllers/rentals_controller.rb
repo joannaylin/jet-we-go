@@ -66,6 +66,10 @@ class RentalsController < ApplicationController
       current_plane.available = !current_plane.available
       current_plane.save
       redirect_to user_path
+    else
+      flash[:message] = "!!!cannot return plane before rental starts"
+      @user = User.find(session[:id])
+      render :show
     end
   end
 
@@ -74,7 +78,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     @user = User.find(session[:id])
   end
-
+  
   private
 
   def rental_params
