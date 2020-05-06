@@ -4,9 +4,9 @@
 <p><%= @user.next_destinations %> </p>
   
 <% @user.rentals.each do |rental| %> 
-  <li> Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental) %> 
+  <li> Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental), class: "link-to-text" %> 
   to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %>
-  <%= link_to "Invoice", invoice_path(rental) %>
+  <%= link_to "Invoice", invoice_path(rental), class: "link-to-text" %>
   </li> 
 <% end %>
 

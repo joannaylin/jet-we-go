@@ -1,6 +1,5 @@
 <h2> Available planes: </h2>
 
 <% @planes.each do |plane| %>
-  <ul> <%= link_to plane.model, plane_path(plane) %> </ul>
+  <ul> <%= link_to plane.model, plane_path(plane), class: "link-to-text" %> </ul>
 <% end %>
-<br>
