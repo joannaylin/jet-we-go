@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+    text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .app-cont {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  
+  .app-cont-thin {
+    max-width: 650px;
+    background: #fff;
+    padding: 1em 0;
+    border-radius: 3px;
+  }
+
+  img {
+    padding: 5px;
+    width: 300px;
+  }
+
+  footer {
+      font-size: 18px;
+      font-weight: 300;
+  }

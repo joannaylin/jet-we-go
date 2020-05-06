@@ -4,7 +4,8 @@
     <title>JetWeGo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <img src="https://i.imgur.com/SrT2mBr.png" alt="Italian Trulli">
+    <br>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,8 +16,6 @@
       <%= link_to current_user.name, user_path(current_user) %>
       <%= link_to "Available Planes", planes_path %>
       <%= link_to "Book a Rental", new_rental_path %>
-  <% else %>
-      <%= link_to "Log In", login_path %>
   <% end %>
     <%= yield %>
   </body>

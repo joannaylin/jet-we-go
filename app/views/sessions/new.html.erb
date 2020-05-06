@@ -1,12 +1,14 @@
-<%= flash[:message]%>
-<h1> Login: </h1>
+<h2> Log in: </h2>
+<%= flash[:message] %>
 
 
 <%= form_tag sessions_path do %> 
   <%= label_tag "Name" %>
   <%= text_field_tag :name %>
+  <br>
   <%= label_tag "Password" %>
   <%= password_field_tag :password %>
+  <br>
   <%= submit_tag "Log in" %>
 <% end %>
 <br>
