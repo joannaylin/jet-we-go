@@ -1,9 +1,26 @@
-<h3> Hi, <%= @user.name %>. </h3>
 <h2> Here are your Rentals: </h2>
 
+<p> Be sure to visit these destinations in your next trip: </p>
+<p><%= @user.next_destinations %> </p>
+  
 <% @user.rentals.each do |rental| %> 
-  <li> Rented at: <%= link_to rental.created_at.strftime("%m/%d/%Y %T"), rental_path(rental), class: "link-to-text" %> 
+  <li> Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental), class: "link-to-text" %> 
   to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %>
   <%= link_to "Invoice", invoice_path(rental), class: "link-to-text" %>
   </li> 
 <% end %>
+
+<p>Our most popular destinations are</p>
+<% Rental.top_3_dest.each do |dest| %>
+  <li> <%= dest %></li>
+<%end%>
+
+<p>Our most popular planes are</p>
+<% Rental.top_3_plane.each do |plane| %>
+  <li> <%= plane %></li>
+<%end%>
+
+<p>Try our newest jet next time: <%= Plane.newest_plane[0].model %></p>
+<p>If you prefer more affordable model: <%= Plane.most_affordable[0].model %></p>
+
+
