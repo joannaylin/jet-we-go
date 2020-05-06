@@ -1,0 +1,11 @@
+<div class="navbar" >
+    <% if logged_in? %>
+      <a> <%= link_to current_user.name, user_path(current_user) %> </a>
+      <a> <%= link_to "Available Planes", planes_path %> </a>
+      <a> <%= link_to "Book a Rental", new_rental_path %> </a>
+      <a> <%= link_to "Log Out", logout_path, method: "delete" %> </a>
+    <% else %>
+      <a> <%= link_to "Log In", login_path %> </a>
+      <a> <%= link_to "Sign Up", new_user_path %> </a>
+    <% end %>
+</div>
