@@ -1,6 +1,10 @@
 <h2> Rental Details </h2>
 
-<%= flash[:message] %>
+<% flash.each do |name, msg| %>
+    <div class="custom-alert">
+      <%= msg %>
+    </div>
+  <% end %>
 
 <p>Plane: <%= @rental.plane.model %> </p>
 <p>City: <%= @rental.airport.city.name %> </p>
@@ -12,7 +16,9 @@
 <br>
 
 <% if @rental.rental_status == "Active" %>
-    <%= button_to "Return Plane", return_path(@rental), class: "link-to-text" %>
+    <div class="button">
+        <a><%= button_to "Return Plane", return_path(@rental) %></a>
+    </div>
 <% end %>
 
 
@@ -20,7 +26,9 @@
     <%= form_for(@rental, url: rating_path) do |f| %>
     <%= f.label "Plane Rating" %> <br>
     1<%= f.range_field :plane_rating, :in=> 1..10, :step => 1 %>10 <br>
-    <%= f.submit "Rate This Plane" %> <br>
+    <div class="button">
+        <a><%= f.submit "Rate This Plane" %> <br></a>
+    </div>
     <% end %>
 <% end %>
 

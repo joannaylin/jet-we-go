@@ -12,18 +12,19 @@
  *
  *= require_tree .
  *= require_self
-
  */
-
 
 .gradient {
   background-image: linear-gradient(to left, #add8e6, #1e90ff);
+  position: relative;
 }
 
-/* .container {
+.container {
   position: absolute;
+  margin: 20px;
   width: auto;
-} */
+  padding: 20px;
+}
 
 /* Add a black background color to the top navigation */
 .navbar {
@@ -56,6 +57,19 @@
 }
 
 
+/* Add background image
+.bg-img {
+  height: 800px; 
+  background-image: url("sky-image.jpeg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+
+
+
  body {
     text-align: center;
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
@@ -68,7 +82,7 @@
     text-decoration: none;
   }
   
-  /* .app-cont {
+  .app-cont {
     max-width: 1080px;
     margin: 0 auto;
   }
@@ -78,7 +92,7 @@
     background: #fff;
     padding: 1em 0;
     border-radius: 3px;
-  } */
+  }
 
   img {
     padding: 5px;
@@ -167,5 +181,4 @@
 
   .link-to-text {
     color: navy;
-    
   }
