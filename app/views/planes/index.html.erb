@@ -1,7 +1,6 @@
-<h1> Welcome to Jet-We-Go, <%= @user.name %>! </h1>
-<h3> Here are the available planes: </h3>
+<h2> Available planes: </h2>
 
 <% @planes.each do |plane| %>
-  <li> <%= link_to plane.model, plane_path(plane) %> </li>
+  <ul> <%= link_to plane.model, plane_path(plane) %> </ul>
 <% end %>
 <br>

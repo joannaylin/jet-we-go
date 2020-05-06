@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:id] = @user.id
-      redirect_to planes_path
+      redirect_to user_path(session[:id])
     else
       render :new
     end

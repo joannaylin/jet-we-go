@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def list_rentals
     self.rentals.order(created_at: :desc)
   end
+
+  def next_destinations
+    self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)[0].airport.city.destinations
+  end
 end
