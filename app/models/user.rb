@@ -13,7 +13,12 @@ class User < ApplicationRecord
   end
 
   def next_destinations
-    self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)[0].airport.city.destinations
+    next_rental = self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)
+    if next_rental.length > 0 
+      dest = next_rental[0].airport.city.destinations
+    else
+      dest = ""
+    end
   end
 
   def next_city

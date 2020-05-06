@@ -1,8 +1,8 @@
 <h2> Here are your Rentals </h2>
-
+<% if @user.next_destinations != "" %>
 <p> Be sure to visit these destinations during your next trip in <%= @user.next_city %> </p>
 <p><%= @user.next_destinations %> </p>
-
+<% end %>
 <br>
 <br>  
 <% @user.ordered_rentals.each do |rental| %> 
