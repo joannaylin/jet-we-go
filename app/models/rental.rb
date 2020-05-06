@@ -56,10 +56,14 @@ class Rental < ApplicationRecord
   end
 
   def self.top_rated_plane
-    plane = self.group(:plane_id).average(:plane_rating)
-    rated_planes = plane.max_by{ |k,v| v }
-    top_plane = Plane.find(rated_planes[0])
-    top_plane.model
+    if self.count > 0
+      plane = self.group(:plane_id).average(:plane_rating)
+      rated_planes = plane.max_by{ |k,v| v }
+      top_plane = Plane.find(rated_planes[0])
+      top_plane.model
+    else
+      "no rated plane"
+    end
   end
 
   private
