@@ -1,14 +1,21 @@
+<% flash.each do |name, msg| %>
+  <div class="custom-alert">
+    <%= msg %>
+  </div>
+<% end %>
 
-<%= flash[:message]%>
 <h1> Welcome to Jet-We-Go! </h1>
+
 <h2> Your premier destination for renting planes to take you where you want to go! ✈️ </h2>
 <br>
 <%= form_tag sessions_path do %> 
   <%= label_tag "Name" %>
-  <%= text_field_tag :name %> <br>
+  <%= text_field_tag :name %>
+  <br>
   <%= label_tag "Password" %>
-  <%= password_field_tag :password %> <br>
-  <%= submit_tag "Log in" %>
+  <%= password_field_tag :password %>
+  <br>
+  <div class="button">
+    <a><%= submit_tag "Log in" %></a>
+  </div>
 <% end %>
-
-<br>

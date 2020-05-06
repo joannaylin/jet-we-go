@@ -4,4 +4,4 @@
 <p>Year Made: <%= @plane.year_made %>  </p>
 <p>Available for Rental: <%= @plane.is_available %> </p>
 <p>Daily Cost: <%= @plane.daily_cost_display %> </p>
-<%= link_to "Back", planes_path(@plane) %>
+<%= link_to "Back", planes_path(@plane), class: "link-to-text" %>
