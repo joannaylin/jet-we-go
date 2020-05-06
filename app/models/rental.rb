@@ -13,7 +13,11 @@ class Rental < ApplicationRecord
   end
 
   def rental_period_actual
-    (rental_return.to_date - rental_start.to_date).to_i
+    day_count = (rental_return.to_date - rental_start.to_date).to_i
+    if day_count == 0
+      day_count = 1
+    end
+    day_count
   end
 
   def rental_status
@@ -51,6 +55,13 @@ class Rental < ApplicationRecord
     dest_3
   end
 
+  def self.top_rated_plane
+    plane = self.group(:plane_id).average(:plane_rating)
+    rated_planes = plane.max_by{ |k,v| v }
+    top_plane = Plane.find(rated_planes[0])
+    top_plane.model
+  end
+
   private
 
   def end_date_after_start_date
@@ -62,7 +73,7 @@ class Rental < ApplicationRecord
 
   def start_date_not_before_today
     return if rental_end.blank? || rental_start.blank?
-    if rental_start < DateTime.now
+    if rental_start < DateTime.now.to_date
       errors.add(:rental_start, "cannot be before today")
     end
   end

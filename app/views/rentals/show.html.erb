@@ -8,10 +8,22 @@
 <p>Rental Start: <%= @rental.rental_start.strftime("%m/%d/%Y") %> </p>
 <p>Rental End: <%= @rental.rental_end.strftime("%m/%d/%Y") %> </p>
 <p>Rental Duration: <%= @rental.rental_period %> </p>
+
 <br>
+
 <% if @rental.rental_status == "Active" %>
     <%= button_to "Return Plane", return_path(@rental) %>
 <% end %>
+
+<% if @rental.rental_status == "Returned" %>
+    <%= form_for(@rental, url: rating_path) do |f| %>
+    <%= f.label "Plane Rating" %> <br>
+    1<%= f.range_field :plane_rating, :in=> 1..10, :step => 1 %>10 <br>
+    <%= f.submit "Rate This Plane" %> <br>
+    <% end %>
+<% end %>
+
+<br>
 <%= link_to "Edit", edit_rental_path(@rental) %>
 <br>
 <%= link_to "Delete", "/rentals/#{@rental.id}", method: :delete %>

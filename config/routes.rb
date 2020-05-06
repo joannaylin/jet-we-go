@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/rentals/:id", to: "rentals#return", as: "return"
   get "/rentals/:id/invoice", to: "rentals#invoice", as: "invoice"
+  patch "/rentals/:id/rating", to: "rentals#rating", as: "rating"
 
   # get "/:user", to: "users#show", as: "homepage"
   resources :planes, only: [:index, :show]

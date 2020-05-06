@@ -1,26 +1,34 @@
-<h2> Here are your Rentals: </h2>
+<h2> Here are your Rentals </h2>
 
-<p> Be sure to visit these destinations in your next trip: </p>
+<p> Be sure to visit these destinations during your next trip in <%= @user.next_city %> </p>
 <p><%= @user.next_destinations %> </p>
-  
-<% @user.rentals.each do |rental| %> 
-  <li> Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental) %> 
-  to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %>
-  <%= link_to "Invoice", invoice_path(rental) %>
-  </li> 
+<br>
+<br>  
+<% @user.ordered_rentals.each do |rental| %> 
+  Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental) %> 
+  to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %> <%=link_to "Invoice", invoice_path(rental)%>  <br>
 <% end %>
 
-<p>Our most popular destinations are</p>
-<% Rental.top_3_dest.each do |dest| %>
-  <li> <%= dest %></li>
+<br>
+<br>
+  <% if Rental.count > 3 %>
+    <h4>Our most popular destinations</h4>
+      <% Rental.top_3_dest.each do |dest| %>
+        <%= dest %> <br>
+  <% end %>
 <%end%>
 
-<p>Our most popular planes are</p>
-<% Rental.top_3_plane.each do |plane| %>
-  <li> <%= plane %></li>
+
+<% if Rental.count > 3 %>
+    <h4>Our most popular planes</h4>
+    <% Rental.top_3_plane.each do |plane| %>
+      <%= plane %> <br>
+  <% end %>
 <%end%>
 
+<br>
+<br>
+<p>Our top rated plane today: <%= Rental.top_rated_plane %> </p>
 <p>Try our newest jet next time: <%= Plane.newest_plane[0].model %></p>
-<p>If you prefer more affordable model: <%= Plane.most_affordable[0].model %></p>
-
+<p>If you prefer more a more affordable model: <%= Plane.most_affordable[0].model %></p>
 
