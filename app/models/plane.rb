@@ -19,4 +19,12 @@ class Plane < ApplicationRecord
     "$" + "#{daily_cost}"
   end
 
+  def self.newest_plane
+    self.order(year_made: :desc).limit(1)
+  end
+
+  def self.most_affordable
+    self.order(daily_cost: :asc).limit(1)
+  end
+
 end
