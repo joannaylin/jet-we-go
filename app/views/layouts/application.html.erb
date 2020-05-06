@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+
+<html class="gradient" >
   <head>
     <title>JetWeGo</title>
     <%= csrf_meta_tags %>
@@ -8,8 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-    <a class=gradient>
+  <body class="gradient" >
         <div class="navbar" >
           <% if logged_in? %>
             <a> <%= link_to current_user.name, user_path(current_user) %> </a>
@@ -23,5 +23,5 @@
         </div>
         <img src="https://i.imgur.com/uYscTKl.png" alt="Jet We Go">
       <%= yield %>
-    </a>
+  </body>
 </html>
