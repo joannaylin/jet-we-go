@@ -2,11 +2,12 @@
 
 <p> Be sure to visit these destinations during your next trip in <%= @user.next_city %> </p>
 <p><%= @user.next_destinations %> </p>
+
 <br>
 <br>  
 <% @user.ordered_rentals.each do |rental| %> 
-  Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental) %> 
-  to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %> <%=link_to "Invoice", invoice_path(rental)%>  <br>
+  Rented for: <%= link_to rental.rental_start.strftime("%m/%d/%Y"), rental_path(rental), class: "link-to-text" %> 
+  to <%= rental.airport.city.name %>, Status: <%= rental.rental_status %> <%=link_to "Invoice", invoice_path(rental), class: "link-to-text"%>  <br>
 <% end %>
 
 <br>

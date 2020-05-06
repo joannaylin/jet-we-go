@@ -8,16 +8,18 @@
 
 <%= form_for @rental do |f| %>
   <%= f.label :plane_id %>
-  <%= f.collection_select :plane_id, @planes, :id, :model %>
+  <div class="dropdown-select"><%= f.collection_select :plane_id, @planes, :id, :model %></div>
   <br>
   <%= f.label :airport_id %>
-  <%= f.collection_select :airport_id, @airports, :id, :airport_city %>
+  <div class="dropdown-select"><%= f.collection_select :airport_id, @airports, :id, :airport_city %></div>
   <br>
   <%= f.label :rental_start %>
-  <%= f.date_field :rental_start %>
+  <div class="dropdown-select"><%= f.date_field :rental_start %></div>
   <br>
   <%= f.label :rental_end %>
-  <%= f.date_field :rental_end %>
+  <div class="dropdown-select"><%= f.date_field :rental_end %></div>
   <br>
-  <%= f.submit %>
+  <div class="button">
+    <a><%= f.submit %></a>
+  </div>
 <% end %>

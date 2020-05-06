@@ -6,18 +6,30 @@
   <% end%>
 <% end %>
 
+<div class="field_with_errors">
 <%= form_for @rental do |f| %>
+  <div class="dropdown-select">
   <%= f.label :plane_id %>
   <%= f.collection_select :plane_id, @planes, :id, :model %>
+  </div>
   <br>
+  <div class="dropdown-select">
   <%= f.label :airport_id %>
   <%= f.collection_select :airport_id, @airports, :id, :airport_city %>
+  </div>
   <br>
+  <div class="dropdown-select">
   <%= f.label :rental_start %>
   <%= f.date_field :rental_start %>
+  </div>
   <br>
+  <div class="dropdown-select">
   <%= f.label :rental_end %>
   <%= f.date_field :rental_end %>
+  </div>
   <br>
-  <%= f.submit %>
+  <div class="button">
+    <a><%= f.submit %></a>
+  </div>
 <% end %>
+</div>

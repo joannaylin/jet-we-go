@@ -5,7 +5,7 @@
     <p style="color: red"><%= error %></p>
   <% end%>
 <% end %>
-
+<div class=field_with_errors>
 <%= form_for @user  do |f| %>
   <%= f.label :name, "Name: " %>
   <%= f.text_field :name %>
@@ -16,5 +16,8 @@
   <%= f.label :password_confirmation, "Password Confirmation: " %>
   <%= f.password_field :password_confirmation %>
   <br>
-  <%= f.submit %>
+  <div class="button">
+    <a><%= f.submit %></a>
+    </div>
 <% end %>
+</div>

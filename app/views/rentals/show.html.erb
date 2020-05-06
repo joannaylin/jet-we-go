@@ -12,8 +12,9 @@
 <br>
 
 <% if @rental.rental_status == "Active" %>
-    <%= button_to "Return Plane", return_path(@rental) %>
+    <%= button_to "Return Plane", return_path(@rental), class: "link-to-text" %>
 <% end %>
+
 
 <% if @rental.rental_status == "Returned" %>
     <%= form_for(@rental, url: rating_path) do |f| %>
@@ -24,8 +25,10 @@
 <% end %>
 
 <br>
-<%= link_to "Edit", edit_rental_path(@rental) %>
+
+<%= link_to "Edit", edit_rental_path(@rental), class: "link-to-text" %>
+
 <br>
-<%= link_to "Delete", "/rentals/#{@rental.id}", method: :delete %>
+<%= link_to "Delete", "/rentals/#{@rental.id}", method: :delete, class: "link-to-text" %>
 <br>
-<%= link_to "Back", user_path(@user) %>
+<%= link_to "Back", user_path(@user), class: "link-to-text" %>
