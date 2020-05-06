@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+
  */
+
 
 .gradient {
   background-image: linear-gradient(to left, #add8e6, #1e90ff);
@@ -55,7 +57,6 @@
   background-color: #4CAF50;
   color: white;
 }
-
 
 /* Add background image
 .bg-img {
