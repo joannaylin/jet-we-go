@@ -94,9 +94,14 @@
     border-radius: 3px;
   }
 
-  img {
+  .img_logo {
     padding: 5px;
     width: 300px;
+  }
+
+  img {
+    padding: 5px;
+    width: 1000px;
   }
 
   footer {
@@ -181,4 +186,17 @@
 
   .link-to-text {
     color: navy;
+  }
+
+  .image-gallery {
+    display: grid;
+     grid-template-columns: 1fr ;
+    grid-gap: 30px;
+    width: 90%;
+    margin: 0 auto;
+  } 
+
+  .gallery-img {
+    width: 100%;
+    overflow: hidden;
   }

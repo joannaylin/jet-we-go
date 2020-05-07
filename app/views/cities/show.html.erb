@@ -1,3 +1,42 @@
-<h2> Destination gallery </h2>
+<h1> Destination gallery </h1>
 <%= @city.destinations %>
+
+
+    <div class="image-gallery">
+      <% case @city.name %>
+        <% when "Chicago" %>
+        <%= image_tag "Chicago_1.jpeg", :class => "gallery_img" %> 
+        <%= image_tag "Chicago_2.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Chicago_3.jpeg", :class => "gallery_img" %> 
+        <%= image_tag "Chicago_4.jpeg", :class => "gallery_img" %>
+        <% when "Tokyo" %>  
+        <%= image_tag "Tokyo_1.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_2.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_3.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_4.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_5.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_6.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_7.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Tokyo_8.jpeg", :class => "gallery_img" %>
+        <% when "New York City" %>
+        <%= image_tag "Newyork_1.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Newyork_2.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Newyork_3.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Newyork_4.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Newyork_5.jpeg", :class => "gallery_img" %>
+        <% when "London" %>
+        <%= image_tag "London_1.jpeg", :class => "gallery_img" %>
+        <%= image_tag "London_2.jpeg", :class => "gallery_img" %>
+        <%= image_tag "London_3.jpeg", :class => "gallery_img" %>
+        <%= image_tag "London_4.jpeg", :class => "gallery_img" %>
+        <%= image_tag "London_5.jpeg", :class => "gallery_img" %>
+        <% when "Paris" %>
+        <%= image_tag "Paris_1.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Paris_2.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Paris_3.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Paris_4.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Paris_5.jpeg", :class => "gallery_img" %>
+        <%= image_tag "Paris_6.jpeg", :class => "gallery_img" %>
+      <% end %>
+    </div>
 
