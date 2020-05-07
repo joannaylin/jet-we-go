@@ -1,7 +1,7 @@
 class RentalsController < ApplicationController
   before_action :require_login
   before_action :destroy_rental, only: [:destroy]
-
+  before_action :edit_rental, only: [:edit]
   def new
     @rental= Rental.new
     @user = User.find(session[:id])
@@ -113,6 +113,14 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     if @rental.rental_start < DateTime.now
       flash[:message] = "Your rental has already started or has happened!"
+      redirect_to rental_path(@rental)
+    end
+  end
+
+  def edit_rental
+    @rental = Rental.find(params[:id])
+    if @rental.rental_return
+      flash[:message] = "Cannot edit a completed rental!"
       redirect_to rental_path(@rental)
     end
   end
