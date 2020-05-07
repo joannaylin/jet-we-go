@@ -38,10 +38,15 @@ class Rental < ApplicationRecord
     dest_a = dest.sort_by{|k,v| v.length}.reverse
     dest_3 = []
     i = 0
-    3.times do |i|
+    while i < dest_a.length 
       dest_3 << dest_a[i][0]
+      i += 1
     end
-    dest_3
+    if dest_3.length > 3
+      dest_3[0..2]
+    else
+      dest_3
+    end
   end
     
   def self.top_3_plane
@@ -49,10 +54,15 @@ class Rental < ApplicationRecord
     dest_a = dest.sort_by{|k,v| v.length}.reverse
     dest_3 = []
     i = 0
-    3.times do |i|
+    while i < dest_a.length
       dest_3 << dest_a[i][0]
+      i += 1
     end
-    dest_3
+    if dest_3.length > 3
+      dest_3[0..2]
+    else
+      dest_3
+    end
   end
 
   def self.top_rated_plane
