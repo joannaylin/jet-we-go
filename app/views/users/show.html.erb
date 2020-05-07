@@ -12,7 +12,7 @@
 
 <br>
 <br>
-  <% if Rental.count > 3 %>
+  <% if Rental.count >= 3 %>
     <h4>Our most popular destinations</h4>
       <% Rental.top_3_dest.each do |dest| %>
         <%= dest %> <br>
@@ -20,7 +20,7 @@
 <%end%>
 
 
-<% if Rental.count > 3 %>
+<% if Rental.count >= 3 %>
     <h4>Our most popular planes</h4>
     <% Rental.top_3_plane.each do |plane| %>
       <%= plane %> <br>
