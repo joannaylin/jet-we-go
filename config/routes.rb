@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :planes, only: [:index, :show]
   resources :rentals, except: [:index]
   resources :users, only: [:new, :create, :show]
-
+  resources :cities, only: [:index, :show]
 end
