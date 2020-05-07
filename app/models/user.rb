@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def next_city
-    self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)[0].airport.city.name
+    self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)[0].airport.city
   end
 
   def ordered_rentals

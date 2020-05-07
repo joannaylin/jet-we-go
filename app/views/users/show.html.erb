@@ -1,6 +1,6 @@
 <h2> Here are your Rentals </h2>
 <% if @user.next_destinations != "" %>
-<p> Be sure to visit these destinations during your next trip in <%= @user.next_city %> </p>
+<p> Be sure to visit these destinations during your next trip in <%= link_to @user.next_city.name, city_path(@user.next_city)  %> </p>
 <p><%= @user.next_destinations %> </p>
 <% end %>
 <br>
