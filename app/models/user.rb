@@ -13,7 +13,7 @@ class User < ApplicationRecord
   end
 
   def next_destinations
-    next_rental = self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)
+    next_rental = self.rentals.where("rental_start > ?", DateTime.now.to_date).where(rental_return: nil).order(rental_start: :asc).limit(1)
     if next_rental.length > 0 
       dest = next_rental[0].airport.city.destinations
     else
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def next_city
-    self.rentals.where("rental_start > ?", DateTime.now).where(rental_return: nil).order(rental_start: :asc).limit(1)[0].airport.city
+    self.rentals.where("rental_start > ?", DateTime.now.to_date).where(rental_return: nil).order(rental_start: :asc).limit(1)[0].airport.city
   end
 
   def ordered_rentals
