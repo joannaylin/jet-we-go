@@ -161,7 +161,9 @@ class RentalsController < ApplicationController
         if (rental_params[:rental_start] <= rental.rental_start &&  
           rental_params[:rental_end] >= rental.rental_start) ||
           (rental_params[:rental_start] <= rental.rental_end &&  
-            rental_params[:rental_end] >= rental.rental_end) 
+            rental_params[:rental_end] >= rental.rental_end) || 
+            (rental_params[:rental_start] >= rental.rental_start &&  
+            rental_params[:rental_end] <= rental.rental_end) 
           avail = false
         end
       end
