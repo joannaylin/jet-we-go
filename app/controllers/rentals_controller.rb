@@ -4,6 +4,7 @@ class RentalsController < ApplicationController
   before_action :edit_rental, only: [:edit]
   before_action :plane_available, only: [:create]
   before_action :plane_available_edit, only: [:update]
+
   def new
     @rental= Rental.new
     @user = User.find(session[:id])
@@ -92,8 +93,6 @@ class RentalsController < ApplicationController
 
   def rating
     @rental = Rental.find(params[:id])
-    p "*******************"
-    p params
     @rental.update(rating_params)
     redirect_to rental_path(@rental)
   end
@@ -138,7 +137,9 @@ class RentalsController < ApplicationController
       if (rental_params[:rental_start] <= rental.rental_start &&  
         rental_params[:rental_end] >= rental.rental_start) ||
         (rental_params[:rental_start] <= rental.rental_end &&  
-          rental_params[:rental_end] >= rental.rental_end) 
+          rental_params[:rental_end] >= rental.rental_end) || 
+        (rental_params[:rental_start] >= rental.rental_start &&  
+        rental_params[:rental_end] <= rental.rental_end) 
         avail = false
       end
     end
@@ -160,7 +161,9 @@ class RentalsController < ApplicationController
         if (rental_params[:rental_start] <= rental.rental_start &&  
           rental_params[:rental_end] >= rental.rental_start) ||
           (rental_params[:rental_start] <= rental.rental_end &&  
-            rental_params[:rental_end] >= rental.rental_end) 
+            rental_params[:rental_end] >= rental.rental_end) || 
+            (rental_params[:rental_start] >= rental.rental_start &&  
+            rental_params[:rental_end] <= rental.rental_end) 
           avail = false
         end
       end
