@@ -5,7 +5,7 @@ class Rental < ApplicationRecord
   validates_presence_of :rental_start
   validates_presence_of :rental_end
   validate :end_date_after_start_date
-  validate :start_date_not_before_today
+  validate :start_date_not_before_today, on: :create
   validate :return_date_not_before_start_date
 
   def rental_period
