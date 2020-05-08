@@ -2,7 +2,7 @@ class PlanesController < ApplicationController
   before_action :require_login
 
   def index
-    @planes = Plane.planes_available
+    @planes = Plane.all
     @user = User.find(session[:id])
   end
 

@@ -1,5 +1,9 @@
 <h2> Book a Rental </h2>
-
+<% flash.each do |name, msg| %>
+  <div class="custom-alert">
+    <%= msg %>
+  </div>
+<% end %>
 <% if @rental.errors %>
   <% @rental.errors.full_messages.each do |error| %>
     <p style="color: red"><%= error %></p>
