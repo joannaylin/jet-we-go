@@ -5,7 +5,7 @@ class Rental < ApplicationRecord
   validates_presence_of :rental_start
   validates_presence_of :rental_end
   validate :end_date_after_start_date
-  validate :start_date_not_before_today
+  validate :start_date_not_before_today, on: :create
   validate :return_date_not_before_start_date
 
   def rental_period
@@ -81,21 +81,21 @@ class Rental < ApplicationRecord
   def end_date_after_start_date
     return if rental_end.blank? || rental_start.blank?
     if rental_end < rental_start
-      errors.add(:rental_end, "must be after the start date")
+      errors.add(:rental_end, "must be after the start date!")
     end
  end
 
   def start_date_not_before_today
     return if rental_end.blank? || rental_start.blank?
     if rental_start < DateTime.now.to_date
-      errors.add(:rental_start, "cannot start a rental before today")
+      errors.add(:rental_start, "cannot start a rental before today!")
     end
   end
 
   def return_date_not_before_start_date
     return if rental_return.blank? || rental_start.blank?
     if rental_return < rental_start
-      errors.add(:rental_start, "cannot return before retnal start")
+      errors.add(:rental_start, "cannot return before rental start!")
     end
   end
 end
