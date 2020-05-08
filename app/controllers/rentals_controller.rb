@@ -4,6 +4,7 @@ class RentalsController < ApplicationController
   before_action :edit_rental, only: [:edit]
   before_action :plane_available, only: [:create]
   before_action :plane_available_edit, only: [:update]
+  before_action :start_date_not_before_today, only: [:update]
 
   def new
     @rental= Rental.new
@@ -62,6 +63,7 @@ class RentalsController < ApplicationController
     current_plane.save
     @user = User.find(session[:id])
     @rental.destroy
+    flash[:message] = ""
     redirect_to user_path(@user)
   end
 
@@ -78,6 +80,7 @@ class RentalsController < ApplicationController
     if @rental.save
       current_plane.available = !current_plane.available
       current_plane.save
+      flash[:message] = ""
       redirect_to user_path
     else
       flash[:message] = "Cannot return plane before rental starts!"
@@ -174,6 +177,17 @@ class RentalsController < ApplicationController
       @planes = Plane.all
       @airports = Airport.all
       flash[:message] = "Plane not available for the selected dates!"
+      render :edit
+    end
+  end
+
+  def start_date_not_before_today
+    if rental_params[:rental_start].to_date < DateTime.now.to_date
+      @rental = Rental.find(params[:id])
+      @user = User.find(session[:id])
+      @planes = Plane.all
+      @airports = Airport.all
+      flash[:message] = "cannot start a rental before today!"
       render :edit
     end
   end
