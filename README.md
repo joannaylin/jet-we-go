@@ -7,6 +7,8 @@
   * Authorizes users through BCrypt. 
   * Incorporates several validations and error messages to ensure proper real-life functionality. 
   * Styled using CSS. 
+  
+* Note: In order to try out app, must clone, and migrate and seed data for use. *
 
 Collaboration with @LukGit and @mackmcquen. 
  
