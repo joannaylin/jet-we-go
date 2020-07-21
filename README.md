@@ -1,4 +1,4 @@
-## Jet-We-Go!
+## Jet-We-Go! :airplane:
 *Don't fly commercial! Use Jet-We-Go! A jet rental app for all those quick, spur of the moment vacations across the world.* 
   * Built using MVC Framework of [Ruby on Rails](https://rubyonrails.org/) to render multiple views on a single-page application. 
   * [Video Demo](https://www.youtube.com/watch?v=6kY26O1JJus)
